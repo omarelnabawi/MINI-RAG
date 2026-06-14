@@ -41,3 +41,5 @@ $ uvicorn main:app --reload --host 0.0.0.0 --port 5000
 - `--reload` enables auto-reloading of the server when code changes are detected, which is useful during development.
 - `--host 0.0.0.0` makes the server accessible from any IP address.
 - `--port 5000` specifies the port on which the server will run.
+### Postman Collection
+Download the Postman collection from [here](/assets/MINI_RAG%20V%202.0.postman_collection.json) and import it into your Postman application
