@@ -43,3 +43,8 @@ $ uvicorn main:app --reload --host 0.0.0.0 --port 5000
 - `--port 5000` specifies the port on which the server will run.
 ### Postman Collection
 Download the Postman collection from [here](/assets/MINI_RAG%20V%202.0.postman_collection.json) and import it into your Postman application
+### Include the base router in your FastAPI application
+```bash
+$ app.include_router(base.base_router)
+```
+This line of code is used to include the base router in your FastAPI application. The `base_router` is defined in the `base` module, which is imported at the beginning of the `main.py` file. By including the router, you can access the endpoints defined in the `base_router` when you run your FastAPI application.
