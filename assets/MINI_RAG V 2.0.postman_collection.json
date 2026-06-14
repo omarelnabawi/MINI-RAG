@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "f0e54981-a13d-47b9-8a34-064525ed73f5",
+		"name": "MINI_RAG V 2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50279256",
+		"_collection_link": "https://omarelnabawi-2938045.postman.co/workspace/Nabawi's-Workspace~c22d9443-a019-45ff-8be8-684feae68ae3/collection/50279256-f0e54981-a13d-47b9-8a34-064525ed73f5?action=share&source=collection_link&creator=50279256"
+	},
+	"item": [
+		{
+			"name": "Welcome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}welcome",
+					"host": [
+						"{{api}}welcome"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api",
+			"value": ""
+		}
+	]
+}
