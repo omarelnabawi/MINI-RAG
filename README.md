@@ -30,3 +30,14 @@ $ pip install -r requirements.txt
 $ cp .env.example .env
 ```
 set your environment variables in the `.env` file. Like 'OPENAI_API_KEY' for value. 
+
+## Usage
+### Run the FastAPI application
+```bash
+$ uvicorn main:app --reload --host 0.0.0.0 --port 5000
+```
+### What Does it mean?
+- `uvicorn main:app` tells Uvicorn to run the FastAPI application defined in the `main.py` file, where `app` is the instance of the FastAPI application.
+- `--reload` enables auto-reloading of the server when code changes are detected, which is useful during development.
+- `--host 0.0.0.0` makes the server accessible from any IP address.
+- `--port 5000` specifies the port on which the server will run.
