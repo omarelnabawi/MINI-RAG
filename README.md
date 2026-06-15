@@ -48,3 +48,7 @@ Download the Postman collection from [here](/assets/MINI_RAG%20V%202.0.postman_c
 $ app.include_router(base.base_router)
 ```
 This line of code is used to include the base router in your FastAPI application. The `base_router` is defined in the `base` module, which is imported at the beginning of the `main.py` file. By including the router, you can access the endpoints defined in the `base_router` when you run your FastAPI application.
+
+``` 
+ thier are a very helpful structure we can use it by writing as an ex: 'fastapi boilarplate github' in google and you will find many boilerplate code for fastapi application. 
+``` 
