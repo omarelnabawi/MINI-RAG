@@ -6,3 +6,5 @@ class response_signal(Enum):
     File_size_exceeded="File size exceeded the limit"
     File_upload_failed="File upload failed"
     File_upload_success="File uploaded successfully"
+    Chunking_Failed="File chunking failed"
+    Chunking_Success="File chunking Success"

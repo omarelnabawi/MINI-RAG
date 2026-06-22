@@ -1,10 +1,13 @@
 from fastapi import APIRouter,Depends,UploadFile,status
 from fastapi.responses import JSONResponse
-from helpers import get_settings,Settings,response_signal
-from controllers import DataController,ProjectController
+from helpers import get_settings,Settings
+from models import response_signal
+from controllers import DataController,ProjectController,Processcontroller
 import aiofiles
 import os
 import logging
+from Routes import process_request
+
 logger = logging.getLogger("uvicorn.error")
 data_router=APIRouter(
     prefix="/api/v1/data",
@@ -37,3 +40,30 @@ async def upload_data(project_id: str, file: UploadFile, app_settings: Settings 
                      "file_id": file_id
                     }
         )
+
+#---------------------------------
+@data_router.post("/process/{project_id}")
+async def process_data(project_id:str,process_request:process_request):
+    file_id=process_request.file_id
+    chunk_size=process_request.chunk_size
+    chunk_overlap=process_request.overlap_size
+    process_controller=Processcontroller(project_id=project_id)
+    file_content=process_controller.get_file_content(file_id=file_id)
+    file_chunk=process_controller.process_file_content(file_content=file_content,
+                                                       file_id=file_id,
+                                                       chunk_size=chunk_size,
+                                                       chunk_overlap=chunk_overlap)
+    if file_chunk is None or len(file_chunk)==0:
+        return JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content={
+                "signal": response_signal.Chunking_Failed.value
+            }
+        )
+
+    else:
+        return JSONResponse(
+            content={
+                "signal":response_signal.Chunking_Success.value
+            }
+                    )

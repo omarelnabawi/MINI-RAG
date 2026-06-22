@@ -1,6 +1,6 @@
 
 from .BaseController import BaseController
-from helpers import response_signal
+from models import response_signal
 from fastapi import UploadFile
 from .Projectcontroller import ProjectController
 import os
@@ -29,7 +29,7 @@ class DataController(BaseController):
             random_filename = self.generate_random_string()
             new_filename = f"{random_filename}_{cleaned_filename}"
             new_file_path = os.path.join(project_path, new_filename)
-        return new_file_path,random_filename
+        return new_file_path,new_filename
    
    
     def clean_file_name(self,org_filename:str):
