@@ -52,3 +52,21 @@ This line of code is used to include the base router in your FastAPI application
 ``` 
  thier are a very helpful structure we can use it by writing as an ex: 'fastapi boilarplate github' in google and you will find many boilerplate code for fastapi application. 
 ``` 
+# what you can find in tut_04_video7?
+### we want to upload files:
+ - in API we will enter the name of folder and upload the file 
+ - we will check it is the size and type sutibele
+ - and we will return message depend on problem using `Enum`
+ - after that we check the name of folder user enter it is it exist? if no we create it if yes we use it 
+ - this step is a bit complicated becouse of we can use `aiofiles` in the file directely and and write it in the folder and that is it but we choose to change create unique_name and simplifie the name of file so at the end it apper in this form => `unique_name +'_'+cleaned_filename` 
+
+# what you can find in tut_05_video8
+## we waNT TO Process the file and split it into chunks
+### I will start from the HIGH LEVEL (Rout) through functions:
+- `data.py` : we create rout that use Processcontroller defination to get [ file_content , file_chunks ] `and` if file_chunks isn't None or 0 we success
+- `Processcontroller.py` : we inhreate from `Basecontroller` 
+  - use `Projectcontroller` to get project_path 
+  - we create `get_file_extintion` to get the extintion of the file.
+  - we create `get_file_loader` to test the type of the file extinction by `ProcessEnum` and choose the right loader.
+  - after we got the type now we create `get_file_content` to extract the data using the loader 
+  - now we need to split the file into chunks using `Langchain` and we choose `RecursiveCharacterTextSplitter` and now we have the chunks.
