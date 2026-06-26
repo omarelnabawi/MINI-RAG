@@ -70,3 +70,5 @@ This line of code is used to include the base router in your FastAPI application
   - we create `get_file_loader` to test the type of the file extinction by `ProcessEnum` and choose the right loader.
   - after we got the type now we create `get_file_content` to extract the data using the loader 
   - now we need to split the file into chunks using `Langchain` and we choose `RecursiveCharacterTextSplitter` and now we have the chunks.
+
+# 
