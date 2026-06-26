@@ -71,4 +71,13 @@ This line of code is used to include the base router in your FastAPI application
   - after we got the type now we create `get_file_content` to extract the data using the loader 
   - now we need to split the file into chunks using `Langchain` and we choose `RecursiveCharacterTextSplitter` and now we have the chunks.
 
-# 
+# what you can find in tut_06_video9
+# we want to us e docker to get our mongodb engine by Docker 
+- first we download Docker 
+- we create `docker-compose.yml` and we cerate our services in it 
+- we add motor to our environment (async engine that fir with fastapi) 
+- we update our .env and config to add `MONGODB_URL` , `MONGODB_DATABASE` 
+- we add the `client` conf into main.py
+- we create in models/db_schemas `data_chunks.py` , `project.py`
+  - `data_chunks.py` : contain the structure of the chunks that should be look like 
+  - `project.py` : contain the structure of the project that should be look like

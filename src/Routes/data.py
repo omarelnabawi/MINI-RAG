@@ -49,11 +49,11 @@ async def process_data(project_id:str,process_request:process_request):
     chunk_overlap=process_request.overlap_size
     process_controller=Processcontroller(project_id=project_id)
     file_content=process_controller.get_file_content(file_id=file_id)
-    file_chunk=process_controller.process_file_content(file_content=file_content,
+    file_chunks=process_controller.process_file_content(file_content=file_content,
                                                        file_id=file_id,
                                                        chunk_size=chunk_size,
                                                        chunk_overlap=chunk_overlap)
-    if file_chunk is None or len(file_chunk)==0:
+    if file_chunks is None or len(file_chunks)==0:
         return JSONResponse(
             status_code=status.HTTP_400_BAD_REQUEST,
             content={
@@ -62,8 +62,4 @@ async def process_data(project_id:str,process_request:process_request):
         )
 
     else:
-        return JSONResponse(
-            content={
-                "signal":response_signal.Chunking_Success.value
-            }
-                    )
+        return file_chunks
