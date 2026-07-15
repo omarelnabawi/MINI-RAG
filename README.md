@@ -81,3 +81,11 @@ This line of code is used to include the base router in your FastAPI application
 - we create in models/db_schemas `data_chunks.py` , `project.py`
   - `data_chunks.py` : contain the structure of the chunks that should be look like 
   - `project.py` : contain the structure of the project that should be look like
+# what you can find in tut_07_video10
+# Use 'Pydantic' to define the data models and Chunks Models for write our incoming data.
+- First we creade 'db_schemes' folder in 'models' folder and we create 'data_chunks.py' and 'project.py' to define the data models for our application.
+- At `models/db_schemas/data_chunks.py` we define the structure of the data chunks that will be stored in the database. This includes fields such as `chunk_id`, `chunk_text`,`chunk_metadata`,`chunk_order`, and `chunk_project_id`.
+- At `models/db_schemas/project.py` we define the structure of the project that will be stored in the database. This includes fields such as `project_id`, `id `:that is the unique identifier for the project, and any other relevant fields.
+# We want to use 'MOtor' to connect to our MongoDB database and perform CRUD operations asynchronously in our FastAPI application.
+- First we create `ProjectModel.py` in `models` folder to define the methods for interacting with the `project` collection in the database. This includes methods for creating a new project=>`create_project` and retrieving an existing project or creating a new one if it doesn't exist=>`get_project_or_create_one` and get all projects => `get_all_projects`.
+- define this methotds into `Routes/data.py` to use it in the routs and for uploading the data and processing it into chunks and store it in the database.
