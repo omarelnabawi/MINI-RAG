@@ -89,3 +89,33 @@ This line of code is used to include the base router in your FastAPI application
 # We want to use 'MOtor' to connect to our MongoDB database and perform CRUD operations asynchronously in our FastAPI application.
 - First we create `ProjectModel.py` in `models` folder to define the methods for interacting with the `project` collection in the database. This includes methods for creating a new project=>`create_project` and retrieving an existing project or creating a new one if it doesn't exist=>`get_project_or_create_one` and get all projects => `get_all_projects`.
 - define this methotds into `Routes/data.py` to use it in the routs and for uploading the data and processing it into chunks and store it in the database.
+# what you can find in tut_08_video11
+- we will update docker Compose Services
+```bash
+$ cd docker
+$ cp .env.example .env
+``` 
+- update `.env` with credentials for MongoDB
+
+
+```bash
+# إيقاف كل الـ containers الشغالة (والواقفة كمان بسبب -a)
+$ sudo docker stop $(sudo docker ps -aq)
+
+# حذف كل الـ containers نهائيًا من الجهاز
+$ sudo docker rm $(sudo docker ps -aq)
+
+# حذف كل الـ images الموجودة على الجهاز
+$ sudo docker rmi $(sudo docker images -q)
+
+# حذف كل الـ volumes (بيانات مخزنة زي قواعد البيانات) - احترس، ده بيمسح البيانات المخزنة فيها
+$ sudo docker volume rm $(sudo docker volume ls -q)
+
+# تنظيف شامل لأي حاجة متبقية مش مستخدمة (containers, networks, images) وتحرير مساحة
+$ sudo docker system prune --all
+```
+
+```bash
+$ sudo docker-compose up -d #ده بيشغل كل الـ services اللي موجودة في ملف docker-compose.yml في الخلفية (-d)
+$ sudo docker-compose down #ده بيوقف كل الـ services اللي شغالة وبيمسح الـ containers اللي اتعملت من الـ services دي
+```
