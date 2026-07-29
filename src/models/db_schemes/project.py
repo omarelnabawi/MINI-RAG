@@ -17,3 +17,13 @@ class Project(BaseModel):
     class Config:
     
         arbitrary_types_allowed=True
+
+    @classmethod
+    def get_indexs(cls):
+        return [
+            {
+                "key": [("project_id", 1)],# 1 يعني تصاعدي
+                "name": "project_id_index_1", # اسم المؤشر
+                "unique": True # التحقق من عدم تكرار القيم في الحقل project_id
+            }
+        ]
