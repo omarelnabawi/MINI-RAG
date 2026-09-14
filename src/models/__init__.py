@@ -5,3 +5,4 @@ from .ProjectModel import ProjectModel
 from .BaseDataModel import BaseDataModel
 from .ChunkModel import ChunkModel
 from .db_schemes import DataChunk
+from .AssetModel import AssetModel

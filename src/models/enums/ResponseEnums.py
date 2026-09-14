@@ -6,5 +6,7 @@ class response_signal(Enum):
     File_size_exceeded="File size exceeded the limit"
     File_upload_failed="File upload failed"
     File_upload_success="File uploaded successfully"
+    FILE_ID_ERROR="Invalid file ID"
     Chunking_Failed="File chunking failed"
     Chunking_Success="File chunking Success"
+    No_Files_To_Process="No files to process"
