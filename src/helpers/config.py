@@ -1,4 +1,4 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, SettingsConfigDict,SecretStr
 
 class Settings(BaseSettings):
     APP_NAME: str
@@ -10,7 +10,22 @@ class Settings(BaseSettings):
     
     MONGODB_URL: str
     MONGODB_DATABASE : str
-    
+
+    GENERATION_BACKEND:str
+    EMBEDDING_BACKEND:str
+
+    OPENAI_API_KEY:SecretStr=None
+    OPENAI_API_URL:str=None
+    CHOHERE_API_KEY:SecretStr=None
+
+    GENERATION_MODEL_ID:str=None
+    EMBEDDING_MODEL_ID:str=None
+    EMBEDDING_MODEL_SIZE:int=None
+
+    INPUT_DEFAULT_MAX_CHARACTERS:int=None
+    GENERATION_DEFAULT_MAX_TOKENS:int=None
+    GENERATION_DEFAULT_TEMPRATURE:float=None
+        
     class Config:
         env_file = ".env"
 
