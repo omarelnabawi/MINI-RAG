@@ -8,3 +8,16 @@ class OpenAIEnum(Enum):
     SYSTEM="system"
     USER="user"
     ASSISTANT="assistant"
+
+class CoHereEnum(Enum):
+    SYSTEM="SYSTEM"
+    USER="USER"
+    ASSISTANT="CHATBOT"
+
+    DOCUMNET="search_document"
+    QUERY="search_query"
+
+
+class DocumentTypeEnum(Enum):
+    DOCUMNET="document"
+    QUERY="query"
