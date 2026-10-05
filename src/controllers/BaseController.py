@@ -7,8 +7,17 @@ class BaseController:
         self.app_settings = get_settings()
         self.base_dir = os.path.dirname(os.path.dirname(__file__))
         self.Files_dir = os.path.join(self.base_dir, 'assets', 'Files')
+        self.DB_dir = os.path.join(self.base_dir, 'DB')
 
     def generate_random_string(self, length: int = 12):
         """Generate a random alphanumeric string."""
         random_string = ''.join(random.choices(string.ascii_letters + string.digits, k=length))
         return random_string
+
+    def get_database_path(self,db_name:str)->str:
+        db_path = os.path.join(self.DB_dir, db_name)
+
+        if not os.path.exists(db_path):
+            os.makedirs(db_path, exist_ok=True)
+        return db_path
+        
